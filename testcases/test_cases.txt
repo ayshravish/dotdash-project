@@ -1,1 +1,227 @@
 //please add your test cases here.
+//NSS TODO List -Application Front End Test cases// 
+Scenario1:  Verify if the NSS- TODO List Application launches successfully
+TC1: 
+Precondition: The URL of the application should be available for Test Data
+Step 1: Enter the specified URL of the Application in the browser
+Step 2: Verify if the NSS- TODO List Application launches successfully
+Expected Result: The NSS- TODO List application should launch successfully
+
+Scenario2: Verify for the NSS-TODO List Application UI components
+TC1:
+Precondition: The NSS TODO List Application should have launched successfully
+Step 1: Verify if the following UI components are present in the successfully launched application
+a.	Text “Updated:” with Date/Time Format “ <<Month Date Year>> , <<Hrs:Mins:Secs>> <<Time Zone>> << ~ xx minutes ago>>”
+Example: “Updated: June 26 2018  21:25:04 UTC, ~30 minutes ago
+b.	Button “ Remove”
+c.	Button “Complete”
+d.	Check Box “ Toggle All”
+e.	Functional Text “[Advanced]”
+f.	Text “Categories:”
+g.	Button “ Add” with “Text field box” to enter the TO DO list Line Item
+h.	Dropdown list “Category:”
+i.	Dropdown list “Due:”
+j.	Button “Add Category” with “Text field box” to enter a Category name an “dropdown list” to enter the Category color
+k.	Existing TO DO items 
+Expected Result: The UI components mentioned in the Step 1 should be present in the application
+
+Scenario3: Validate the functionality of the “Remove” Button
+TC1:
+Precondition: Atleast 1 TODO List item should be present with successful launch of the application
+Step 1 : Select the line item from the TO DO list for removal by checking the checkbox 
+Step 2: Click on the “Remove” button
+Expected Result: The selected line item should be removed from the TODO list
+Scenario 4: Validate the functionality of the “Complete” Button
+TC1: Completing a TODO list item by manually selecting it
+Precondition: Atleast 1 TODO List item should be present 
+Step 1 : Select the line item from the TO DO list for completion by checking the corresponding checkbox 
+Step 2: Click on the “Complete” button
+Expected Result: The text of selected line item should be Striked out from the TODO list
+
+TC2: Completing a TODO list item by manually selecting it
+Precondition: More than 1 TODO List item should be present
+Step 1 : Select the line items from the TO DO list for completion by checking the “Toggle All” checkbox 
+Step 2: Click on the “Complete” button
+Expected Result: The text of selected line item should be Striked out from the TODO list
+
+
+Scenario 5: Validate the functionality of the “Toggle All” checkbox
+Precondition: Atleast 1 or more TODO List item should be present with successful launch of the application
+TC1: Select    
+Step 1: Select the “Toggle All” option by checking the corresponding check box
+Expected Result: All the Checkboxes of the Corresponding TODO list line items much be checked
+
+TC2:
+Step1: Unselect the “Toggle All” option by unchecking the corresponding check box
+Expected Result: All the Checkboxes of the Corresponding TODO list line items much be unchecked
+
+Scenario 6: Validate the functionality of the “Add” button
+TC1:
+Step 1: Enter the text for the line item to be added to the TODO list
+Step 2: Do not add any Category
+Step 3: Click on the “Add” Button
+Expected Result: The Line item should be added to the TODO list in default color and no category should be displayed beside the line item. Example: “Test Line Item (None)”
+
+TC2: Adding Category with No Due Date
+Precondition: There should be existing categories in the Category drop down list
+Step 1: Enter the text for the line item to be added to the TODO list
+Step 2: Add the Category by selecting one item from the Category Drop down
+Step 3: Do not select a Due Date
+Step 3: Click on the “Add” Button
+Expected Result: The Line item should be added to the TODO list in default color and no category should be displayed beside the line item. Example: “Test Line Item (None)”
+
+TC3: Adding Category with a future Due Date
+Precondition: There should be existing categories in the Category drop down list
+Step 1: Enter the text for the line item to be added to the TODO list
+Step 2: Add the Category where Category = “Work” by selecting one item from the Category Drop down
+Step 3: Select a Due Date value where Date = “26”, Month = “Jun” & Year = “2018” from the “Due” drop downs
+Step 3: Click on the “Add” Button
+Expected Result: The Line item should be added to the TODO list in default color and category should be displayed beside the line item. Example: “Test Line Item1 (26/06/2018) (Work)”
+
+TC4: Adding Category with a Past Due Date
+Precondition: There should be existing categories in the Category drop down list
+Step 1: Enter the text for the line item to be added to the TODO list
+Step 2: Add the Category where Category = “Work” by selecting one item from the Category Drop down
+Step 3: Select a Due Date value where Date = “25”, Month = “Jun” & Year = “2018” from the “Due” drop downs
+Step 4: Click on the “Add” Button
+Expected Result: The Line item should be added to the TODO list and display it in th color corresponding to “Overdue” and category should be displayed beside the line item. Example: “Test Line Item1 (25/06/2018) (Work)” with font color corresponding to “Overdue” category
+
+TC5: Adding Category with an incorrect format of Due Date
+Step 1: Enter the text for the line item to be added to the TODO list
+Step 2: Add the Category where Category = “Work” by selecting one item from the Category Drop down
+Step 3: Select an incorrect value of Due Date value where Date = “31”, Month = “Sep” & Year = “2018” from the “Due” drop downs. 
+(Note: Selecting a wrong value with Month as Sep and Date as 31 instead of 30)
+Step 4: Click on the “Add” Button
+Expected Result: The Line item not be added to the TODO list
+
+
+Scenario 7: Validate the functionality of the “Category” Dropdown 
+TC1:
+Precondition: 
+P1. Ensure that the “Category:” dropdown is displayed by selecting the “Advanced” functional link 
+P2. Ensure to add Categories using the Add Category button in order to be displayed in the Category dropdown list
+Step 1: Verify if the Default Value displayed in the “Category” dropdown list is “None”
+Expected Result: The Default Value displayed for the Category Dropdown list should be “None”
+Step 2: Select the “Category” Dropdown list and ensure that the corresponding values added using the “Add Category” button are present
+Expected Result: The “Category” dropdown list should display those values added using the “Add Category” button
+
+Scenario 8: Validate the functionality of the “Due” date Dropdown 
+TC1: Default Display of Due Date
+Step1: Check if the Default value for the Due date is displayed as “None” for Date & Month and <<Current Year>> for the year dropdown
+Expected Result: The Due Date should be displayed 
+
+TC2: Specific value selected in Due Date Dropdown 
+Step1: Check for the following:
+a.	The Date Drop down has values ranging from 1 to 31
+b.	The Month Drop Down has values from Jan to Dec – Jan , Feb, Mar, Apr, May , Jun, Jul, Aug, Sep, Oct, Nov &Dec
+c.	The Year Dropdown has the values for <<Current Year-1>> <<current year>> and <<Current Year +1>>
+Expected Result:
+a.	The Date Drop down should have values ranging from 1 to 31
+b.	The Month Drop Down should have values from Jan to Dec – Jan , Feb, Mar, Apr, May , Jun, Jul, Aug, Sep, Oct, Nov &Dec
+c.	The Year Dropdown should have the values for <<Current Year-1>> <<current year>> and <<Current Year +1>>
+
+Scenario 9: Validate the functionality of “Advanced”
+TC1: 
+Step 1: Click the “Advanced” functional link and verify if the following does not display:
+a.	“Category” dropdown
+b.	“Due” dropdown
+c.	“Add Category” text field
+d.	Dropdown for color options
+Expected Result:
+The following should not be displayed:
+a.	“Category” dropdown
+b.	“Due” dropdown
+c.	“Add Category” text field
+d.	Dropdown for color options
+TC2: Alternate flow
+Step 1: Click the “Advanced” functional link and verify if the following is displayed:
+a.	“Category” dropdown
+b.	“Due” dropdown
+c.	“Add Category” text field
+d.	Dropdown for color options
+Expected Result:
+The following should be displayed:
+a.	“Category” dropdown
+b.	“Due” dropdown
+c.	“Add Category” text field
+d.	Dropdown for color options
+Scenario 10: Verify if the items of the TODO list can be manually checked and unchecked from the Check box for completion/removal
+Precondition: Atleast 1 TODO list item should be present
+TC1: 
+Step1: Select the TODO list item for removal by checking the check box
+Step 2: Click on Remove
+Expected Result: The selected TODO list item should be removed from the TODO list
+
+TC2:
+Step1: Select the TODO list item for completion by checking the check box
+Step 2: Click on complete
+Expected Result: The selected TODO list item should be striked out from the TODO list
+TC3: 
+Step1: UnSelect the TODO list item for removal by unchecking the check box
+Step 2: Click on Remove
+Expected Result: The selected TODO list item should not be removed from the TODO list
+
+TC4:
+Step1: UnSelect the TODO list item for completion by unchecking the check box
+Step 2: Click on complete
+Expected Result: The selected TODO list item should not be striked out from the TODO list
+
+
+
+Scenario 11: Validate the functionality of the “Add Category” Button
+TC1: Validating with Color dropdown as “None”
+Step 1 : Enter a Category name “ Test Category” in the Add Category text field 
+Step 2: Ensure that the Color option dropdown list is set to default value as “None”
+Step 2: Click on “Add Category” button
+Expected Result: The Category name” Test Category” should be displayed in the default font color as black
+
+TC2: Validating with a specific value from Color dropdown which is already used for an existing category
+Step 1 : Enter a Category name “ Test Category” in the Add Category text field 
+Step 2: Select a value from the color dropdown “Blue” which is already used for the category “Work”
+Step 3: Click on “Add Category” button
+Expected Result: The application navigates to another page with the following message
+“The category you want to add already exists: TEST Category.
+
+And the colour you picked is in use by another category: Work (in Blue)
+
+Do you want to remove the colour of 'Work' and change the colour of TEST Category to TEST Category (into Blue)? 
+
+Yes or Nevermind”
+Step4: Select the Nevermind option //Validating the Yes and Nevermind options//
+Expected Result: Application will take the user back to the Home page with the input values retained  
+Step5: Once again click on the “Add Category” button with te values retained as in Step 2
+Step 6: The application navigates to the page with the alert message as follows:
+“The category you want to add already exists: TEST Category.
+
+And the colour you picked is in use by another category: Work (in Blue)
+
+Do you want to remove the colour of 'Work' and change the colour of TEST Category to TEST Category (into Blue)? 
+
+Yes or Nevermind”
+Step7: Click on the “Yes” option
+Expected result: The Newly added Category will be displayed in Blue and the existing category “work” that initially had blue font will now be displayed in default black font
+
+TC3: Validating with a specific value from Color dropdown which is  NOT already used for an existing category
+Step 1 : Enter a Category name “ Test Category2” in the Add Category text field 
+Step 2: Select a value from the color dropdown “Yellow” which is NOT already used for any of the existing categories
+Step 3: Click on “Add Category” button
+Expected Result: The application displays the “Test Category” in Yellow font color
+
+Scenario 12: Validate the functionality of the color option dropdown
+TC1:
+Step1: Verify if the dropdown displays all the color values as specified below: <<in the Function requirement spec >>
+None, Green, Blue, Cyan, Yellow, Purple Gray
+Expected Result: The dropdown values should be displayed as below:
+None, Green, Blue, Cyan, Yellow, Purple Gray
+
+TC2: 
+Step1: Verify if the default value of the color option dropdown is set to “none”
+Expected Result: The Default value of Color option should be set to “None”
+
+
+
+
+
+
+
+
